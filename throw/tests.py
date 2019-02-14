@@ -9,7 +9,8 @@ class PlayerBot(Bot):
     def play_round(self):
         yield (pages.Instructions)
         for i in  range(10):
-            yield (pages.Q,{'q1':random.randint(2,10)})
+            yield (pages.Q,{'q1':random.randint(2,10),
+                            'q2':random.randint(3,10)})
             yield (pages.Instructions)
-        yield (pages.Q, {'q1': 1})
+        yield (pages.Q, Constants.correct_answers)
         yield (pages.Results)

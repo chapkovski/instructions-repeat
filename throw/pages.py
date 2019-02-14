@@ -11,18 +11,20 @@ class Instructions(Page):
 
 class Q(Page):
     form_model = 'player'
-    form_fields = ['q1']
+    form_fields = ['q1', 'q2']
 
     def before_next_page(self):
         p = self.player
-        if self.player.q1 != Constants.correct_answer:
-            p.q1 = None
-            p.cp_error = True
+        p.cp_error = False
+        for k, v in Constants.correct_answers.items():
+            if getattr(p, k) != v:
+                p.cp_error = True
+        if p.cp_error:
+            for f in self.form_fields:
+                setattr(p, f, None)
             self._is_frozen = False
             self._index_in_pages -= 2
             self.participant._index_in_pages -= 2
-        else:
-            p.cp_error = False
 
 
 class Results(Page):

@@ -3,7 +3,6 @@ from otree.api import (
     Currency as c, currency_range
 )
 
-
 author = 'Your name here'
 
 doc = """
@@ -15,7 +14,9 @@ class Constants(BaseConstants):
     name_in_url = 'throw'
     players_per_group = None
     num_rounds = 1
-    correct_answer = 1
+    correct_answers = {'q1': 1,
+                       'q2': 2}
+
 
 class Subsession(BaseSubsession):
     pass
@@ -27,4 +28,5 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     cp_error = models.BooleanField()  # set to True when a person answers erroneusly at a comprehension page
-    q1 = models.IntegerField()  # comprehension question (correct answer  should be 1 - for instance, see constants)
+    q1 = models.IntegerField()  # comprehension question (correct answer  should be 1, for instance, see constants)
+    q2 = models.IntegerField()  # comprehension question (correct answer  should be 2,for instance, see constants)
