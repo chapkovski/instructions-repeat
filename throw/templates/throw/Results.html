@@ -1,0 +1,15 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block content %}
+    <h3>You answered everything correctly! You can proceed with your study</h3>
+    <div class="my-3">
+        {% next_button %}
+    </div>
+{% endblock %}
+
+

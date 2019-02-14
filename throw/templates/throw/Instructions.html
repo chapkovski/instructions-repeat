@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Intro
+{% endblock %}
+
+{% block content %}
+    {% if player.cp_error %}
+        {% include 'throw/components/error_modal.html'   with message=message %}
+    {% endif %}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Instructions</h5>
+            Some instructions....
+        </div>
+    </div>
+    <div class="my-3">
+    {% next_button %}
+</div>
+{% endblock %}

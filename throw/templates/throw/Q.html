@@ -1,0 +1,16 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Comprehension questions
+{% endblock %}
+
+{% block content %}
+    <h2>Comprehension questions go here:</h2>
+    <h3 class="text-italic text-secondary">(Right answer is 1, everything else will push you back to Instructions)</h3>
+    {% formfields %}
+  <div class="my-3">
+    {% next_button %}
+</div>
+
+{% endblock %}
