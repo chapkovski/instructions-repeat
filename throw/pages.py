@@ -19,6 +19,7 @@ class Q(Page):
         for k, v in Constants.correct_answers.items():
             if getattr(p, k) != v:
                 p.cp_error = True
+                break
         if p.cp_error:
             for f in self.form_fields:
                 setattr(p, f, None)
